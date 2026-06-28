@@ -1,105 +1,1131 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Lina Abdelsatar | IT Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  
-  <body>
-    <div class="container">
-      <header>
-        <h1>Lina Abdelsatar</h1>
-        <p>IT Graduate | Cloud Computing & Cybersecurity Path</p>
-      </header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudWork Pro+ | Smart Remote Work Platform</title>
 
-      <section class="hero">
-        <h2>Building practical IT projects for real job opportunities.</h2>
-        <p>
-          I am developing hands-on skills in cloud computing, cybersecurity basics,
-          GitHub, and web deployment. This portfolio shows my technical progress
-          and projects.
-        </p>
-      </section>
+  <style>
+    :root {
+      --bg: #eef3ff;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-solid: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #7c3aed;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --warning: #f59e0b;
+      --border: rgba(148, 163, 184, 0.25);
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --radius: 24px;
+    }
 
-      <section>
-        <h2>About Me</h2>
-        <p>
-          I am an IT graduate building a strong practical portfolio for entry-level
-          technology roles. My focus is cloud computing, cybersecurity fundamentals,
-          and real-world project-based learning.
-        </p>
-      </section>
+    body.dark {
+      --bg: #020617;
+      --surface: rgba(15, 23, 42, 0.86);
+      --surface-solid: #0f172a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    }
 
-      <section>
-        <h2>Technical Skills</h2>
-        <div class="skills">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>GitHub</span>
-          <span>GitHub Pages</span>
-          <span>Cloud Basics</span>
-          <span>Cybersecurity Basics</span>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.20), transparent 32%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.18), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      transition: 0.3s ease;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px;
+      background: rgba(15, 23, 42, 0.96);
+      color: white;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+    }
+
+    .logo h1 {
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .logo p {
+      color: #94a3b8;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .nav-title {
+      color: #64748b;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 24px 0 12px;
+    }
+
+    .nav-btn {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #cbd5e1;
+      padding: 13px 14px;
+      border-radius: 15px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      transition: 0.25s ease;
+      text-align: left;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      transform: translateX(4px);
+    }
+
+    .sidebar-footer {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .main {
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .topbar h2 {
+      font-size: 27px;
+      margin-bottom: 4px;
+    }
+
+    .topbar p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip {
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid rgba(37, 99, 235, 0.14);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 15px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-soft {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--primary);
+    }
+
+    .btn-danger {
+      background: rgba(220, 38, 38, 0.12);
+      color: var(--danger);
+    }
+
+    .section {
+      display: none;
+      animation: fade 0.25s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      min-height: 270px;
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(37,99,235,0.94), rgba(124,58,237,0.92)),
+        url("https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 36px;
+      box-shadow: 0 22px 55px rgba(37, 99, 235, 0.28);
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: -90px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      color: #eaf1ff;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      font-size: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 21px;
+    }
+
+    .stat {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.09);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat h3 {
+      font-size: 33px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .muted {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 7px;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--surface-solid);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 13px 14px;
+      margin-bottom: 13px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 14px;
+    }
+
+    .item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .item small {
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .badge-success { background: rgba(22, 163, 74, 0.13); color: var(--success); }
+    .badge-warning { background: rgba(245, 158, 11, 0.14); color: var(--warning); }
+    .badge-primary { background: rgba(37, 99, 235, 0.13); color: var(--primary); }
+    .badge-danger { background: rgba(220, 38, 38, 0.13); color: var(--danger); }
+
+    .progress {
+      height: 10px;
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress div {
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 72%;
+      border-radius: 999px;
+    }
+
+    .feature {
+      min-height: 155px;
+    }
+
+    .feature .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .team-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 16px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: none;
+      z-index: 100;
+      max-width: 320px;
+    }
+
+    .toast.show {
+      display: block;
+      animation: fade 0.25s ease;
+    }
+
+    .kanban {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .kanban-col h3 {
+      margin-bottom: 12px;
+    }
+
+    .task-card {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .task-card h4 {
+      margin-bottom: 8px;
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      border: 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 800;
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--primary);
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+      }
+      .sidebar-footer { position: static; margin-top: 20px; }
+      .grid-4, .grid-3, .grid-2, .kanban { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .search-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">☁</div>
+        <div>
+          <h1>CloudWork Pro+</h1>
+          <p>Remote Work Cloud System</p>
+        </div>
+      </div>
+
+      <div class="nav-title">Main</div>
+      <button class="nav-btn active" onclick="showSection('overview', this)">📊 Overview</button>
+      <button class="nav-btn" onclick="showSection('workspace', this)">🧩 Workspace</button>
+      <button class="nav-btn" onclick="showSection('files', this)">📁 Cloud Files</button>
+      <button class="nav-btn" onclick="showSection('tasks', this)">✅ Tasks</button>
+      <button class="nav-btn" onclick="showSection('team', this)">👥 Team</button>
+
+      <div class="nav-title">System</div>
+      <button class="nav-btn" onclick="showSection('meetings', this)">🎥 Meetings</button>
+      <button class="nav-btn" onclick="showSection('security', this)">🛡 Security</button>
+      <button class="nav-btn" onclick="showSection('admin', this)">⚙ Admin</button>
+
+      <div class="sidebar-footer">
+        <strong>Prototype Mode</strong><br />
+        Front-end simulation. Can be upgraded later with Firebase, AWS S3, IAM, and real database.
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h2 id="pageTitle">Overview</h2>
+          <p id="pageSubtitle">Professional dashboard for cloud-based remote work management.</p>
+        </div>
+        <div class="top-actions">
+          <span class="chip" id="userChip">Guest Mode</span>
+          <button class="btn btn-soft" onclick="toggleTheme()">🌙 Theme</button>
+          <button class="btn btn-primary" onclick="quickLogin()">Quick Demo Login</button>
+        </div>
+      </div>
+
+      <section id="overview" class="section active">
+        <div class="hero">
+          <div class="hero-content">
+            <h1>Smart Remote Work Cloud Platform</h1>
+            <p>
+              A modern practical graduation project that simulates secure cloud access,
+              file storage, task workflows, online meetings, admin monitoring, and cloud security.
+            </p>
+            <button class="btn btn-primary" onclick="goToWorkspace()">Open Workspace</button>
+            <button class="btn btn-soft" onclick="showToast('System report generated successfully.')">Generate Report</button>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <div class="card stat">
+            <span>System Status</span>
+            <h3>Online</h3>
+            <p>Cloud services active</p>
+          </div>
+          <div class="card stat">
+            <span>Files Stored</span>
+            <h3 id="statFiles">3</h3>
+            <p>Secure cloud storage</p>
+          </div>
+          <div class="card stat">
+            <span>Active Tasks</span>
+            <h3 id="statTasks">4</h3>
+            <p>Team productivity</p>
+          </div>
+          <div class="card stat">
+            <span>Security Score</span>
+            <h3>96%</h3>
+            <p>MFA and access control</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h2 class="section-title">Cloud Usage Analytics</h2>
+            <p class="muted">Storage usage</p>
+            <div class="progress"><div id="storageProgress"></div></div>
+            <br />
+            <p class="muted">This dashboard simulates how organizations monitor cloud resources, storage usage, remote users, tasks, and security activity.</p>
+          </div>
+
+          <div class="card">
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="list" id="activityList"></div>
+          </div>
         </div>
       </section>
 
-      <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-          <h3>Cloud-Hosted Portfolio Website</h3>
-          <p>
-            Built a personal portfolio website using HTML and CSS. Used GitHub for
-            version control and GitHub Pages to deploy the website online.
-          </p>
-          <p>
-            This project demonstrates web development fundamentals, GitHub workflow,
-            and basic cloud deployment skills.
-          </p>
-          <p>
-  <a href="https://linamoh66.github.io/cloud-project/" target="_blank">View Live Website</a>
-</p>
+      <section id="workspace" class="section">
+        <h2 class="section-title">Workspace Modules</h2>
+        <div class="grid-3">
+          <div class="card feature">
+            <div class="icon">🔐</div>
+            <h3>Secure Login</h3>
+            <p class="muted">Simulates cloud authentication using Firebase Auth or AWS IAM.</p>
+          </div>
+          <div class="card feature">
+            <div class="icon">📦</div>
+            <h3>Cloud Storage</h3>
+            <p class="muted">Simulates AWS S3 or Firebase Storage for remote files.</p>
+          </div>
+          <div class="card feature">
+            <div class="icon">📊</div>
+            <h3>Admin Dashboard</h3>
+            <p class="muted">Tracks files, tasks, users, activity logs, and system health.</p>
+          </div>
+          <div class="card feature">
+            <div class="icon">✅</div>
+            <h3>Task Management</h3>
+            <p class="muted">Helps remote teams assign, track, and finish tasks.</p>
+          </div>
+          <div class="card feature">
+            <div class="icon">🎥</div>
+            <h3>Meetings</h3>
+            <p class="muted">Connects users with Google Meet, Zoom, and Teams.</p>
+          </div>
+          <div class="card feature">
+            <div class="icon">🛡</div>
+            <h3>Security Layer</h3>
+            <p class="muted">Shows MFA, encryption, access control, and monitoring.</p>
+          </div>
         </div>
-        <div class="project">
- <h3>Cloud Project (In Progress)</h3>
-  <p>
-    Currently working on a cloud-related project to expand my practical experience.
-  </p>
-</div>
-   <div class="project">
-  <h3>AWS Static Website Architecture</h3>
-
-  <p>
-    Designed a cloud architecture for hosting a static website using AWS services
-    such as S3, CloudFront, Route 53, and IAM.
-  </p>
-
-  <p>
-    This project demonstrates understanding of cloud infrastructure, content delivery,
-    and secure web hosting concepts.
-  </p>
-
-  <p>
-    <a href="https://github.com/linamoh66/cloud-project/blob/main/aws-architecture.md" target="_blank">
-      View Project Details
-    </a>
-  </p>
-</div>
       </section>
-<section>
-  <h2>Contact</h2>
 
-  <p>If you would like to work with me or have any opportunity, feel free to contact me:</p>
+      <section id="files" class="section">
+        <h2 class="section-title">Cloud File Manager</h2>
+        <div class="grid-2">
+          <div class="card">
+            <label>Upload File</label>
+            <input type="file" id="fileInput" />
+            <label>File Category</label>
+            <select id="fileCategory">
+              <option>Research Document</option>
+              <option>Presentation</option>
+              <option>Report</option>
+              <option>Dataset</option>
+            </select>
+            <button class="btn btn-primary" onclick="uploadFile()">Upload to Cloud</button>
+          </div>
 
-  <p><strong>Email:</strong>
-  <a href="mailto:lina.abdelsatar107@gmail.com">lina.abdelsatar107@gmail.com</a>
-</p>
-   <p><strong>GitHub:</strong>
-  <a href="https://github.com/linamoh66">github.com/linamoh66</a>
-</p>
-</section>
-      <footer>
-  <p>© 2026 Lina Abdelsatar</p>
-</footer>
-    </div>
-  </body>
+          <div class="card">
+            <h2 class="section-title">Storage Summary</h2>
+            <p class="muted">Used storage: <strong id="storageText">42%</strong></p>
+            <div class="progress"><div style="width:42%"></div></div>
+            <br />
+            <p class="muted">Real version: files are saved in AWS S3 or Firebase Storage.</p>
+          </div>
+        </div>
+
+        <br />
+        <div class="card table-wrap">
+          <div class="search-row">
+            <input id="fileSearch" placeholder="Search files..." oninput="renderFiles()" />
+            <select id="fileFilter" onchange="renderFiles()">
+              <option>All</option>
+              <option>Research Document</option>
+              <option>Presentation</option>
+              <option>Report</option>
+              <option>Dataset</option>
+            </select>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>File Name</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="filesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tasks" class="section">
+        <h2 class="section-title">Advanced Task Board</h2>
+        <div class="card">
+          <div class="grid-3">
+            <div>
+              <label>Task Title</label>
+              <input id="taskTitle" placeholder="Example: Prepare final cloud diagram" />
+            </div>
+            <div>
+              <label>Priority</label>
+              <select id="taskPriority">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </div>
+            <div>
+              <label>Assigned To</label>
+              <select id="taskOwner">
+                <option>Lina</option>
+                <option>Amira</option>
+                <option>Admin</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="addTask()">Add Task</button>
+        </div>
+
+        <br />
+        <div class="kanban">
+          <div class="card kanban-col">
+            <h3>To Do</h3>
+            <div id="todoTasks"></div>
+          </div>
+          <div class="card kanban-col">
+            <h3>In Progress</h3>
+            <div id="progressTasks"></div>
+          </div>
+          <div class="card kanban-col">
+            <h3>Completed</h3>
+            <div id="doneTasks"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section">
+        <h2 class="section-title">Team Members</h2>
+        <div class="grid-3" id="teamGrid"></div>
+      </section>
+
+      <section id="meetings" class="section">
+        <h2 class="section-title">Cloud Meeting Center</h2>
+        <div class="grid-3">
+          <div class="card feature">
+            <div class="icon">G</div>
+            <h3>Google Meet</h3>
+            <p class="muted">For university meetings and remote collaboration.</p><br />
+            <button class="btn btn-soft" onclick="openLink('https://meet.google.com/')">Open Google Meet</button>
+          </div>
+          <div class="card feature">
+            <div class="icon">Z</div>
+            <h3>Zoom</h3>
+            <p class="muted">For presentations, interviews, and online classes.</p><br />
+            <button class="btn btn-soft" onclick="openLink('https://zoom.us/')">Open Zoom</button>
+          </div>
+          <div class="card feature">
+            <div class="icon">T</div>
+            <h3>Microsoft Teams</h3>
+            <p class="muted">For enterprise collaboration and professional teamwork.</p><br />
+            <button class="btn btn-soft" onclick="openLink('https://teams.microsoft.com/')">Open Teams</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="security" class="section">
+        <h2 class="section-title">Cloud Security Center</h2>
+        <div class="grid-4">
+          <div class="card stat"><span>MFA</span><h3>On</h3><p>Multi-factor authentication</p></div>
+          <div class="card stat"><span>Encryption</span><h3>AES</h3><p>Data protection layer</p></div>
+          <div class="card stat"><span>Access Rules</span><h3>Role</h3><p>User-based permissions</p></div>
+          <div class="card stat"><span>Monitoring</span><h3>Live</h3><p>Activity tracking</p></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h2 class="section-title">Security Explanation</h2>
+            <p class="muted">
+              This section demonstrates important cloud security concepts: authentication,
+              authorization, access control, encryption, backup, monitoring, and activity logs.
+            </p>
+          </div>
+          <div class="card">
+            <h2 class="section-title">Security Checklist</h2>
+            <div class="list">
+              <div class="item"><strong>Strong Password Policy</strong><span class="badge badge-success">Enabled</span></div>
+              <div class="item"><strong>Cloud Backup</strong><span class="badge badge-success">Enabled</span></div>
+              <div class="item"><strong>Unknown Device Alert</strong><span class="badge badge-warning">Warning</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin" class="section">
+        <h2 class="section-title">Admin Monitoring Panel</h2>
+        <div class="grid-4">
+          <div class="card stat"><span>Total Users</span><h3>3</h3><p>Registered accounts</p></div>
+          <div class="card stat"><span>Files</span><h3 id="adminFileCount">3</h3><p>Cloud uploads</p></div>
+          <div class="card stat"><span>Tasks</span><h3 id="adminTaskCount">4</h3><p>Workflow items</p></div>
+          <div class="card stat"><span>Uptime</span><h3>99%</h3><p>System availability</p></div>
+        </div>
+
+        <div class="card table-wrap">
+          <h2 class="section-title">Activity Logs</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Action</th>
+                <th>User</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminLogs"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const state = {
+      user: 'Guest Mode',
+      files: [
+        { name: 'Cloud-Research-Report.pdf', category: 'Research Document', size: '1.8 MB', status: 'Stored' },
+        { name: 'Final-Presentation.pptx', category: 'Presentation', size: '4.2 MB', status: 'Stored' },
+        { name: 'Remote-Work-Data.xlsx', category: 'Dataset', size: '650 KB', status: 'Stored' }
+      ],
+      tasks: [
+        { title: 'Prepare system architecture diagram', priority: 'High', owner: 'Lina', status: 'todo' },
+        { title: 'Write security section', priority: 'Medium', owner: 'Amira', status: 'todo' },
+        { title: 'Design dashboard UI', priority: 'High', owner: 'Lina', status: 'progress' },
+        { title: 'Collect cloud references', priority: 'Low', owner: 'Admin', status: 'done' }
+      ],
+      logs: []
+    };
+
+    const titles = {
+      overview: ['Overview', 'Professional dashboard for cloud-based remote work management.'],
+      workspace: ['Workspace', 'Main modules and practical cloud features.'],
+      files: ['Cloud Files', 'Upload, search, filter, and manage cloud documents.'],
+      tasks: ['Tasks', 'Manage teamwork using a professional Kanban workflow.'],
+      team: ['Team', 'Remote team members and roles.'],
+      meetings: ['Meetings', 'Connect to online collaboration platforms.'],
+      security: ['Security', 'Cloud security, monitoring, and access protection.'],
+      admin: ['Admin', 'System monitoring, activity logs, and cloud usage.']
+    };
+
+    function showSection(id, btn) {
+      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      document.querySelectorAll('.nav-btn').forEach(button => button.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.getElementById('pageTitle').textContent = titles[id][0];
+      document.getElementById('pageSubtitle').textContent = titles[id][1];
+    }
+
+    function goToWorkspace() {
+      const button = [...document.querySelectorAll('.nav-btn')].find(b => b.textContent.includes('Workspace'));
+      showSection('workspace', button);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      showToast('Theme changed successfully.');
+    }
+
+    function quickLogin() {
+      state.user = 'lina@cloudwork.com';
+      document.getElementById('userChip').textContent = state.user;
+      addLog('Quick demo login', state.user, 'Success');
+      showToast('Demo login successful. Secure access granted.');
+    }
+
+    function uploadFile() {
+      const input = document.getElementById('fileInput');
+      const category = document.getElementById('fileCategory').value;
+
+      if (!input.files.length) {
+        showToast('Please choose a file first.');
+        return;
+      }
+
+      const file = input.files[0];
+      const size = file.size > 1024 * 1024
+        ? (file.size / (1024 * 1024)).toFixed(1) + ' MB'
+        : (file.size / 1024).toFixed(1) + ' KB';
+
+      state.files.unshift({ name: file.name, category, size, status: 'Stored' });
+      addLog('Uploaded file: ' + file.name, state.user, 'Success');
+      input.value = '';
+      renderFiles();
+      renderStats();
+      showToast('File uploaded to cloud storage.');
+    }
+
+    function renderFiles() {
+      const tbody = document.getElementById('filesTable');
+      const search = document.getElementById('fileSearch')?.value.toLowerCase() || '';
+      const filter = document.getElementById('fileFilter')?.value || 'All';
+
+      const filtered = state.files.filter(file => {
+        const matchesSearch = file.name.toLowerCase().includes(search) || file.category.toLowerCase().includes(search);
+        const matchesFilter = filter === 'All' || file.category === filter;
+        return matchesSearch && matchesFilter;
+      });
+
+      tbody.innerHTML = filtered.map((file, index) => `
+        <tr>
+          <td><strong>${file.name}</strong></td>
+          <td>${file.category}</td>
+          <td>${file.size}</td>
+          <td><span class="badge badge-success">${file.status}</span></td>
+          <td><button class="mini-btn" onclick="deleteFile(${index})">Delete</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function deleteFile(index) {
+      const removed = state.files.splice(index, 1)[0];
+      addLog('Deleted file: ' + removed.name, state.user, 'Success');
+      renderFiles();
+      renderStats();
+      showToast('File deleted.');
+    }
+
+    function addTask() {
+      const title = document.getElementById('taskTitle').value.trim();
+      const priority = document.getElementById('taskPriority').value;
+      const owner = document.getElementById('taskOwner').value;
+
+      if (!title) {
+        showToast('Please enter a task title.');
+        return;
+      }
+
+      state.tasks.unshift({ title, priority, owner, status: 'todo' });
+      document.getElementById('taskTitle').value = '';
+      addLog('Created task: ' + title, owner, 'Success');
+      renderTasks();
+      renderStats();
+      showToast('Task added successfully.');
+    }
+
+    function moveTask(index, status) {
+      state.tasks[index].status = status;
+      addLog('Moved task: ' + state.tasks[index].title, state.tasks[index].owner, 'Success');
+      renderTasks();
+      renderStats();
+    }
+
+    function removeTask(index) {
+      const removed = state.tasks.splice(index, 1)[0];
+      addLog('Removed task: ' + removed.title, state.user, 'Success');
+      renderTasks();
+      renderStats();
+      showToast('Task removed.');
+    }
+
+    function renderTasks() {
+      const columns = {
+        todo: document.getElementById('todoTasks'),
+        progress: document.getElementById('progressTasks'),
+        done: document.getElementById('doneTasks')
+      };
+
+      Object.values(columns).forEach(col => col.innerHTML = '');
+
+      state.tasks.forEach((task, index) => {
+        const badgeClass = task.priority === 'High' ? 'badge-danger' : task.priority === 'Medium' ? 'badge-warning' : 'badge-primary';
+        const card = document.createElement('div');
+        card.className = 'task-card';
+        card.innerHTML = `
+          <h4>${task.title}</h4>
+          <p class="muted">Owner: ${task.owner}</p><br>
+          <span class="badge ${badgeClass}">${task.priority}</span>
+          <div class="task-actions">
+            ${task.status !== 'todo' ? `<button class="mini-btn" onclick="moveTask(${index}, 'todo')">To Do</button>` : ''}
+            ${task.status !== 'progress' ? `<button class="mini-btn" onclick="moveTask(${index}, 'progress')">Progress</button>` : ''}
+            ${task.status !== 'done' ? `<button class="mini-btn" onclick="moveTask(${index}, 'done')">Done</button>` : ''}
+            <button class="mini-btn" onclick="removeTask(${index})">Remove</button>
+          </div>
+        `;
+        columns[task.status].appendChild(card);
+      });
+    }
+
+    function renderTeam() {
+      const team = [
+        { name: 'Lina Abdelsatar', role: 'Cloud Project Lead', status: 'Online' },
+        { name: 'Amira Abuelgasim', role: 'Research & Documentation', status: 'Online' },
+        { name: 'System Admin', role: 'Security Monitoring', status: 'Active' }
+      ];
+
+      document.getElementById('teamGrid').innerHTML = team.map(member => `
+        <div class="card item">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="team-avatar">${member.name.charAt(0)}</div>
+            <div>
+              <strong>${member.name}</strong>
+              <small>${member.role}</small>
+            </div>
+          </div>
+          <span class="badge badge-success">${member.status}</span>
+        </div>
+      `).join('');
+    }
+
+    function addLog(action, user, status) {
+      const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      state.logs.unshift({ time: now, action, user, status });
+      state.logs = state.logs.slice(0, 8);
+      renderLogs();
+    }
+
+    function renderLogs() {
+      const activity = document.getElementById('activityList');
+      const adminLogs = document.getElementById('adminLogs');
+
+      activity.innerHTML = state.logs.slice(0, 4).map(log => `
+        <div class="item">
+          <div>
+            <strong>${log.action}</strong>
+            <small>${log.time} | ${log.user}</small>
+          </div>
+          <span class="badge badge-success">${log.status}</span>
+        </div>
+      `).join('');
+
+      adminLogs.innerHTML = state.logs.map(log => `
+        <tr>
+          <td>${log.time}</td>
+          <td>${log.action}</td>
+          <td>${log.user}</td>
+          <td><span class="badge badge-success">${log.status}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderStats() {
+      const activeTasks = state.tasks.filter(task => task.status !== 'done').length;
+      document.getElementById('statFiles').textContent = state.files.length;
+      document.getElementById('statTasks').textContent = activeTasks;
+      document.getElementById('adminFileCount').textContent = state.files.length;
+      document.getElementById('adminTaskCount').textContent = state.tasks.length;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    function openLink(url) {
+      window.open(url, '_blank');
+      addLog('Opened meeting platform', state.user, 'Success');
+    }
+
+    addLog('System initialized', 'CloudWork Pro+', 'Success');
+    addLog('Security scan completed', 'System Admin', 'Success');
+    addLog('Dashboard loaded', 'Guest Mode', 'Success');
+    renderFiles();
+    renderTasks();
+    renderTeam();
+    renderStats();
+  </script>
+</body>
 </html>
